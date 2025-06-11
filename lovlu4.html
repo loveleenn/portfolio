@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loveleen Kaur | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS (Animate on Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-image {
+            position: relative;
+            z-index: 1;
+            overflow: hidden; /* Ensures pseudo-elements are contained */
+        }
+        /* Pseudo-element for the blurred background image */
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('lovlu.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(1px);
+            /* Scale up to prevent blurred edges from showing */
+            transform: scale(1.1);
+            z-index: -2;
+        }
+        /* Pseudo-element for the dark overlay for text contrast */
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(25, 25, 50, 0.7);
+            z-index: -1;
+        }
+        /* Ensure all direct children are visible above the pseudo-elements */
+        .hero-image > * {
+            position: relative;
+            z-index: 2;
+        }
+        .card-border {
+            border-top: 4px solid #667eea;
+        }
+        .skill-tag {
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .project-card, .info-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover, .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #e2e8f0;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-container.left {
+            left: 0;
+        }
+        .timeline-container.right {
+            left: 50%;
+        }
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid #667eea;
+            top: 28px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-container.right::after {
+            left: -13px;
+        }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header / Hero Section -->
+    <header class="hero-image text-white shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">LK.</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#journey" class="nav-link">Journey</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </nav>
+        <div class="container mx-auto px-6 py-20 text-center">
+            <div data-aos="fade-up">
+                <img src="https://placehold.co/128x128/FFFFFF/667EEA?text=LK" alt="Loveleen Kaur" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white shadow-xl">
+                <h1 class="text-5xl font-bold mb-2">Loveleen Kaur</h1>
+                <p class="text-2xl opacity-90 mb-8">Frontend Developer & UX/UI Designer</p>
+                <a href="#contact" class="bg-white text-indigo-600 font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105">Get In Touch</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Career Objective Section -->
+        <section id="objective" class="py-20 bg-gray-100">
+            <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4">My Ambition</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    I am a dedicated and hard-working person with a strong work ethic and excellent communication skills. Seeking to gain hands-on experience while utilizing my hardworking nature to achieve mutual success within a dynamic and professional environment.
+                </p>
+            </div>
+        </section>
+
+        <!-- Journey (Experience & Education) Timeline Section -->
+        <section id="journey" class="py-20">
+            <div class="container mx-auto px-6">
+                 <h2 class="text-4xl font-bold mb-16 text-center" data-aos="fade-up">My Journey</h2>
+                 <div class="timeline">
+                    <div class="timeline-container left" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <h3 class="text-xl font-semibold text-indigo-600">B.E, Computer Science</h3>
+                            <h4 class="text-md font-medium text-gray-700 mb-2">Chandigarh University</h4>
+                            <span class="text-sm font-medium text-gray-500">2021 - 2025</span>
+                            <p class="text-gray-600 mt-2">Building a strong foundation in computer science principles, data structures, and software development.</p>
+                        </div>
+                    </div>
+                     <div class="timeline-container right" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h3 class="text-xl font-semibold text-indigo-600">Frontend Development Intern</h3>
+                            <h4 class="text-md font-medium text-gray-700 mb-2">Next24tech Technology And Services</h4>
+                             <span class="text-sm font-medium text-gray-500">Jul 2024 - Sep 2024</span>
+                            <p class="text-gray-600 mt-2">Gained practical experience in frontend technologies, contributing to real-world projects in a professional setting.</p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-lg project-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-indigo-500 text-4xl mb-4"><i class="fas fa-palette"></i></div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Portfolio Design</h3>
+                        <p class="text-gray-600 leading-relaxed">This project involved a deep dive into the UX/UI process to create compelling and user-centric designs. It includes detailed case studies that outline the journey from initial user research and persona creation to wireframing, prototyping, and final visual design, showcasing a systematic approach to solving user problems.</p>
+                    </div>
+                     <div class="bg-gray-50 p-8 rounded-lg shadow-lg project-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-indigo-500 text-4xl mb-4"><i class="fas fa-shopping-cart"></i></div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Amazon Clone</h3>
+                        <p class="text-gray-600 leading-relaxed">A comprehensive e-commerce platform that replicates the core functionalities of Amazon. This project demonstrates skills in building complex systems, including robust user authentication, dynamic product catalogs with search and filtering, an intuitive shopping cart, and a secure, multi-step checkout process.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-lg project-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-indigo-500 text-4xl mb-4"><i class="fas fa-store"></i></div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">E-Commerce Website</h3>
+                        <p class="text-gray-600 leading-relaxed">Focused on creating a bespoke online shopping experience, this project involved building a dynamic and intuitive platform from the ground up. It provides a seamless experience for customers and includes powerful admin tools for vendors to manage inventory, process orders, and view sales analytics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Combined Skills & Certifications Section -->
+        <section id="skills" class="py-20 bg-gray-100">
+            <div class="container mx-auto px-6">
+                 <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Toolkit & Achievements</h2>
+                 <div class="grid lg:grid-cols-2 gap-16 items-start">
+                    <!-- Skills -->
+                    <div data-aos="fade-right">
+                        <h3 class="text-2xl font-bold mb-6 text-center lg:text-left">What I Use</h3>
+                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                            <span class="skill-tag bg-white shadow-md text-gray-800 text-lg font-medium px-5 py-2 rounded-lg flex items-center"><i class="fab fa-html5 mr-2 text-red-500"></i>HTML5</span>
+                            <span class="skill-tag bg-white shadow-md text-gray-800 text-lg font-medium px-5 py-2 rounded-lg flex items-center"><i class="fab fa-css3-alt mr-2 text-blue-500"></i>CSS3</span>
+                            <span class="skill-tag bg-white shadow-md text-gray-800 text-lg font-medium px-5 py-2 rounded-lg flex items-center"><i class="fab fa-js-square mr-2 text-yellow-500"></i>JavaScript</span>
+                            <span class="skill-tag bg-white shadow-md text-gray-800 text-lg font-medium px-5 py-2 rounded-lg flex items-center"><i class="fab fa-react mr-2 text-blue-400"></i>React</span>
+                            <span class="skill-tag bg-white shadow-md text-gray-800 text-lg font-medium px-5 py-2 rounded-lg flex items-center"><i class="fas fa-bold mr-2"></i>Next.js</span>
+                            <span class="skill-tag bg-white shadow-md text-gray-800 text-lg font-medium px-5 py-2 rounded-lg flex items-center"><i class="fab fa-node-js mr-2 text-green-500"></i>Node.js</span>
+                            <span class="skill-tag bg-white shadow-md text-gray-800 text-lg font-medium px-5 py-2 rounded-lg flex items-center"><i class="fab fa-figma mr-2 text-pink-500"></i>Figma</span>
+                            <span class="skill-tag bg-white shadow-md text-gray-800 text-lg font-medium px-5 py-2 rounded-lg flex items-center"><i class="fas fa-users mr-2 text-purple-500"></i>UI/UX Design</span>
+                        </div>
+                    </div>
+                    <!-- Certifications & Extra-Curricular -->
+                    <div data-aos="fade-left">
+                        <h3 class="text-2xl font-bold mb-6 text-center lg:text-left">Credentials</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg shadow-md info-card flex items-center">
+                                <i class="fas fa-certificate text-indigo-500 text-2xl mr-4"></i>
+                                <p class="font-semibold text-gray-800">UX/UI Design Principles <span class="text-gray-500 font-normal">- META</span></p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md info-card flex items-center">
+                                 <i class="fas fa-certificate text-indigo-500 text-2xl mr-4"></i>
+                                <p class="font-semibold text-gray-800">Responsive Web Design <span class="text-gray-500 font-normal">- Coursera</span></p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md info-card flex items-center">
+                                 <i class="fas fa-star text-yellow-500 text-2xl mr-4"></i>
+                                <p class="font-semibold text-gray-800">Debate Club Winner & Event Coordinator</p>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-indigo-700 text-white">
+            <div class="container mx-auto px-6 text-center" data-aos="zoom-in">
+                <h2 class="text-4xl font-bold mb-4">Let's Build Something Great Together</h2>
+                <p class="text-lg opacity-90 max-w-2xl mx-auto mb-8">
+                    I'm currently available for freelance work and open to discussing new projects. If you have an idea you want to bring to life, let's connect!
+                </p>
+                <div class="flex justify-center items-center flex-wrap gap-6 text-lg">
+                     <a href="mailto:loveleennkaur2004@gmail.com" class="bg-white text-indigo-700 font-bold py-3 px-6 rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105 flex items-center">
+                        <i class="fas fa-envelope mr-3"></i>
+                        Email Me
+                    </a>
+                    <div class="flex items-center font-semibold">
+                        <i class="fas fa-phone mr-3"></i>
+                        <span>+91 6284346712</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="hero-image text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+             <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="text-2xl transition-transform duration-300 hover:scale-125" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-2xl transition-transform duration-300 hover:scale-125" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                 <a href="#" class="text-2xl transition-transform duration-300 hover:scale-125" aria-label="Portfolio">
+                    <i class="fas fa-briefcase"></i>
+                </a>
+            </div>
+            <p class="opacity-80">&copy; 2025 Loveleen Kaur. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AOS (Animate on Scroll) Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 50,
+      });
+    </script>
+</body>
+</html>
